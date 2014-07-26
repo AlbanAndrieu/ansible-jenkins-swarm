@@ -1,0 +1,15 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: Download Jenkins Swarm Client
+  get_url: dest={{ jenkins_home }}/swarm-client-{{ swarm_client_version }}-jar-with-dependencies.jar url=http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/{{ swarm_client_version }}/swarm-client-{{ swarm_client_version }}-jar-with-dependencies.jar owner=jenkins
+
+- name: Install swarm client script
+  template: src=jenkins-swarm-client.sh.j2 dest=/etc/init.d/jenkins-swarm-client mode=0700
+
+- fail: msg="Missing parameters!"
+  when_string: $jenkins_username == '' or $jenkins_password == ''
+
+- name: Start the Jenkins swarm client service
+  service: name=jenkins-swarm-client state=started enabled=true
+  tags: service  

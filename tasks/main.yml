@@ -1,0 +1,6 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- include: swarm.yml
+  when: swarm_enabled 
+  tags: [swarm]
