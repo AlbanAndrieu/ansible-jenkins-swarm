@@ -2,7 +2,7 @@
 
 galaxy_info:
   author: Alban Andrieu
-  description: A role for installing vagrant
+  description: A role for installing jenkins-swarm
   company: Nabla
   license: MIT
   min_ansible_version: 1.6.3
