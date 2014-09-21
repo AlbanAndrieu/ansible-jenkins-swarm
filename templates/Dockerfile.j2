@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+FROM        stackbrew/ubuntu:14.04
+#FROM        debian:jessie
+
+VOLUME      ["/var/log/jenkins"]
+
+MAINTAINER  Alban Andrieu "https://github.com/AlbanAndrieu/nabla"
+
+ENV			DEBIAN_FRONTEND noninteractive
+#ENV         JENKINS_HOME {{ jenkins_home }}
+
+RUN         apt-get update && \
+            apt-get install -y tomcat6
+
+#EXPOSE      8080
+ENTRYPOINT  ["/etc/init.d/jenkins-swarm-client"]
+#ENTRYPOINT ["java", "-jar", "{{ jenkins_home }}/swarm-client-1.9-jar-with-dependencies.jar"]
+CMD ["-g", "deamon off;"
