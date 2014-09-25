@@ -2,7 +2,11 @@
 jenkins_swarm_enabled: yes                       # Enable module
 jenkins_swarm_client_version: 1.9                # Swarm client version
 
-jenkins_home: /jenkins
+jenkins_name: jenkins
+jenkins_user: jenkins
+jenkins_group: jenkins
+#jenkins_home: /jenkins
+jenkins_home: /var/lib/jenkins
 jenkins_url: https://home.nabla.mobi/jenkins
 jenkins_slave_name: swarm-{{ ansible_hostname }}
 #prompted jenkins_username: tbd
