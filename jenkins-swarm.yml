@@ -2,4 +2,4 @@
 - hosts: all
   sudo: True
   roles:
-    - ansible-swarm
+    - ansible-jenkins-swarm

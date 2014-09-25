@@ -1,4 +1,4 @@
-nsible-jenkins-swarm
+ansible-jenkins-swarm
 ==============
 
 A role for installing jenkins swarm.

@@ -10,5 +10,5 @@ script:
   - ansible --version
   - export ANSIBLE_ROLES_PATH="../"
   - echo localhost > inventory
-  - ansible-playbook -i inventory --syntax-check swarm.yml
-  - ansible-playbook -i inventory --connection=local --sudo -vvvv swarm.yml
+  - ansible-playbook -i inventory --syntax-check jenkins-swarm.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv jenkins-swarm.yml
