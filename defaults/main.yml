@@ -1,3 +1,14 @@
 ---
 swarm_enabled: yes                       # Enable module
 swarm_client_version: 1.9               # Swarm client version
+
+jenkins_home: /jenkins
+jenkins_url: https://home.nabla.mobi/jenkins
+jenkins_slave_name: swarm-{{ ansible_hostname }}
+#prompted jenkins_username: tbd
+#prompted jenkins_password: tbd
+
+docker_files_generated_directory         : "roles/jenkins-swarm"
+docker_volume_directory                  : "/var/log/jenkins"
+docker_working_directory                 : "/home/vagrant"
+docker_image_name                        : "nabla/ansible-jenkins-swarm"

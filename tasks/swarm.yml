@@ -13,3 +13,10 @@
 - name: Start the Jenkins swarm client service
   service: name=jenkins-swarm-client state=started enabled=true
   tags: service  
+  
+- name: Copy Dockerfile
+  template: src=Dockerfile.j2 dest={{ docker_files_generated_directory }}/Dockerfile mode=0777
+  
+- name: Copy build.sh
+  template: src=build.sh.j2 dest={{ docker_files_generated_directory }}/build.sh mode=0777
+  

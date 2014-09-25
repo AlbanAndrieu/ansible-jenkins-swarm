@@ -1,14 +1,16 @@
-# ansible-swarm
+nsible-jenkins-swarm
+==============
 
-A role for installing swarm.
+A role for installing jenkins swarm.
 
+[![Build Status](https://api.travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm.png?branch=master)](https://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm)
 
 ## Actions
 
 - Ensures that swarm is installed (using `apt`)
 
-
-## Usage:
+Usage example
+------------
 ```
   - name: Install swarm
     hosts: swarm
@@ -24,9 +26,24 @@ A role for installing swarm.
       private: yes
 
     roles:
-      - swarm
+      - jenkins-swarm
 ```
 
-## License
+Requirements
+------------
+
+none
+
+Dependencies
+------------
+
+https://github.com/AlbanAndrieu/ansible-jenkins-slave
+
+License
+-------
 
 MIT
+
+#### Feedback, bug-reports, requests, ...
+
+Are [welcome](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/issues)!
