@@ -1,6 +1,10 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 
+- name: Create jenkins user
+  user: name={{ jenkins_user }} comment="Jenkins user" home={{ jenkins_home }} shell={{ jenkins_shell }}
+  ignore_errors: True
+  
 - name: Create base directory
   file:
     dest="{{ jenkins_home }}"
