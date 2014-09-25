@@ -1,6 +1,13 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
 
-- include: swarm.yml
-  when: swarm_enabled 
-  tags: [swarm]
+- include: jenkins-swarm.yml
+  when: jenkins_swarm_enabled 
+  tags: [jenkins_swarm]
+ 
+- name: Copy Dockerfile
+  template: src=Dockerfile.j2 dest={{ docker_files_generated_directory }}/Dockerfile mode=0777
+  
+- name: Copy build.sh
+  template: src=build.sh.j2 dest={{ docker_files_generated_directory }}/build.sh mode=0777
+  
