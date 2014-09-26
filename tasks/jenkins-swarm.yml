@@ -22,7 +22,7 @@
   tags: jenkins_swarm_setup
   
 - fail: msg="Missing parameters!"
-  when: $jenkins_username == '' or $jenkins_password == ''
+  when: jenkins_username == '' or jenkins_password == ''
 
 - name: Start the Jenkins swarm client service
   service: name=jenkins-swarm-client state=started enabled=true

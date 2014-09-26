@@ -5,7 +5,7 @@
     - ansible-jenkins-swarm
      
   vars:     
-       docker_files_generated_directory: ""  
-       jenkins_home: /var/lib/jenkins
-       jenkins_username: tbd
-       jenkins_password: tbd
+    docker_files_generated_directory: ""  
+    jenkins_home: /var/lib/jenkins
+    jenkins_username: tbd
+    jenkins_password: tbd
