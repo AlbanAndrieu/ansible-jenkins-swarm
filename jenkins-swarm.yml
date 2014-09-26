@@ -5,4 +5,5 @@
     - ansible-jenkins-swarm
      
   vars:     
-       docker_files_generated_directory         : ""  
+       docker_files_generated_directory: ""  
+       jenkins_home: /var/lib/jenkins
