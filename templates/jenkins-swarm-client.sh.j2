@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # {{ ansible_managed }}
-java -jar {{ jenkins_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar -name {{jenkins_slave_name}}  -description "Swarm node" -labels "java java-medium java-small jboss7x ubuntu" -executors 1 -password {{ jenkins_password }} -username {{ jenkins_username }} -fsroot {{ jenkins_home }}/jenkins-slave -master {{ jenkins_url }} -disableSslVerification &> {{ jenkins_home }}/swarm-client.log &
+java -jar {{ jenkins_home_dir }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar -name {{jenkins_slave_name}}  -description "Swarm node" -labels "java java-medium java-small jboss7x ubuntu" -executors 1 -password {{ jenkins_password }} -username {{ jenkins_username }} -fsroot {{ jenkins_home_dir }}/jenkins-slave -master {{ jenkins_url }} -disableSslVerification &> {{ jenkins_home_dir }}/swarm-client.log &

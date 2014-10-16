@@ -14,7 +14,7 @@ Usage example
 ```
   - name: Install swarm
     hosts: swarm
-    user: root
+    remote_user: root
   #  connection: local
 
     vars_prompt:
