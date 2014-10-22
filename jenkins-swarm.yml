@@ -1,8 +1,8 @@
 ---
 - hosts: all
-  sudo: True
+  sudo: true
   roles:
-    - ansible-jenkins-swarm
+    - role: ./
      
   vars:     
     docker_files_generated_directory: ""  
