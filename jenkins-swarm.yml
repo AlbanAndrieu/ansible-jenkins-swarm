@@ -2,11 +2,11 @@
 - hosts: all
   sudo: true
   roles:
-    - role: ./
-     
-  vars:     
-    docker_files_generated_directory: ""  
-    docker_files_enable: no    
-    jenkins_home_dir: /var/lib/jenkins
-    jenkins_username: tbd
-    jenkins_password: tbd
+    - { role: ./,
+        docker_files_enable: yes,
+        jenkins_home_dir: /var/lib/jenkins,
+        jenkins_username: tbd,
+        jenkins_password: tbd  
+      }
+
+#- include: docker/integration-tests.yml

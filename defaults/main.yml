@@ -12,7 +12,8 @@ jenkins_slave_name: swarm-{{ ansible_hostname }}
 #prompted jenkins_username: tbd
 #prompted jenkins_password: tbd
 
-docker_files_generated_directory         : "roles/jenkins-swarm"
+docker_files_generated_directory: "./"
+docker_files_enable: no
 docker_volume_directory                  : "/var/log/jenkins"
 docker_working_directory                 : "/home/vagrant"
 docker_image_name                        : "nabla/ansible-jenkins-swarm"

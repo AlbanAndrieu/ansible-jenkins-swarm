@@ -4,7 +4,7 @@ ansible-jenkins-swarm
 A role for installing jenkins swarm.
 
 [![Build Status](https://api.travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm.png?branch=master)](https://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm)
-[![Galaxy](http://img.shields.io/badge/galaxy-jenkins-swarm-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/1184)
+[![Galaxy](http://img.shields.io/badge/galaxy-jenkins-swarm-blue.svg?style=flat-square)](https://galaxy.ansible.com/list#/roles/2000)
 [![Tag](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)]()
 
 ## Actions
