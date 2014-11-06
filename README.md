@@ -1,6 +1,6 @@
 ## jenkins-swarm
 
-[![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-AlbanAndrieu.jenkins-swarm-660198.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2000) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-AlbanAndrieu.jenkinsswarm-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2000) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 Ensures that jenkins swarm is properly installed (using `apt`) and configured for a jenkins slave to be connected to the master
 
