@@ -1,14 +1,16 @@
 ## jenkins-swarm
 
-[![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-AlbanAndrieu.jenkinsswarm-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2000) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
+[![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-alban.andrieu.jenkinsswarm-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2000) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
 Ensures that jenkins swarm is properly installed (using `apt`) and configured for a jenkins slave to be connected to the master
 
 ### Installation
 
-This role requires at least Ansible `v1.6.3`. To install it, run:
+This role requires at least Ansible `v1.6.3`. 
 
-    ansible-galaxy install AlbanAndrieu.jenkins-swarm
+To install it, run:
+
+    ansible-galaxy install alban.andrieu.jenkins-swarm
 
 
 
@@ -52,7 +54,7 @@ Describe how to use in more detail...
 
 ### Feedback, bug-reports, requests, ...
 
-Are [welcome](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/issues>)!
+Are [welcome](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/issues)!
 
 ***
 

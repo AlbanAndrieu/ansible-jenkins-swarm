@@ -28,7 +28,8 @@ galaxy_info:
 
 ansigenome_info:
   galaxy_id: '2000'
-
+  galaxy_user:  'alban.andrieu'
+  
   travis: True
   
   authors:
@@ -40,7 +41,6 @@ ansigenome_info:
       
   synopsis: |
     Ensures that jenkins swarm is properly installed (using `apt`) and configured for a jenkins slave to be connected to the master
-
 
   usage: |
     Describe how to use in more detail...
