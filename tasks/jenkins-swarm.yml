@@ -2,19 +2,19 @@
 # This playbook contains common plays that will be run on all nodes.
 
 - name: jenkins-swarm | Create jenkins user
-  user: name={{ jenkins_user }} comment="Jenkins user" home={{ jenkins_home_dir }} shell={{ jenkins_shell }}
+  user: name={{ jenkins_user }} comment="Jenkins user" home={{ jenkins_home }} shell={{ jenkins_shell }}
   ignore_errors: True
   
 - name: jenkins-swarm | Create base directory
   file:
-    dest="{{ jenkins_home_dir }}"
+    dest="{{ jenkins_home }}"
     state=directory
     owner="{{ jenkins_user }}"
     group="{{ jenkins_group }}"
   tags: jenkins_swarm_setup
 
 - name: jenkins-swarm | Download Jenkins Swarm Client
-  get_url: dest={{ jenkins_home_dir }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url=http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/{{ jenkins_swarm_client_version }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar owner={{ jenkins_user }} group={{ jenkins_group }}
+  get_url: dest={{ jenkins_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url=http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/{{ jenkins_swarm_client_version }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar owner={{ jenkins_user }} group={{ jenkins_group }}
   tags: jenkins_swarm_setup
   
 - name: jenkins-swarm | Install swarm client script

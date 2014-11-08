@@ -27,7 +27,7 @@ List of default variables available in the inventory:
     jenkins_user: jenkins
     jenkins_group: jenkins
     jenkins_shell: "/bin/false"
-    jenkins_home_dir: /var/lib/jenkins
+    jenkins_home: /var/lib/jenkins
     jenkins_url: https://home.nabla.mobi/jenkins
     jenkins_slave_name: swarm-{{ ansible_hostname }}
     #prompted jenkins_username: tbd

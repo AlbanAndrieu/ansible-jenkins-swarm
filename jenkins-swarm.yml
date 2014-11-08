@@ -4,7 +4,7 @@
   roles:
     - { role: ./,
         docker_files_enable: yes,
-        jenkins_home_dir: /var/lib/jenkins,
+        jenkins_home: /var/lib/jenkins,
         jenkins_username: tbd,
         jenkins_password: tbd  
       }
