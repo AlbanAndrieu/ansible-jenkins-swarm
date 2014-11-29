@@ -1,4 +1,3 @@
----
 jenkins_swarm_enabled: yes                       # Enable module
 jenkins_swarm_client_version: 1.9                # Swarm client version
 

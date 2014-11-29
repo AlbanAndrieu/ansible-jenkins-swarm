@@ -1,4 +1,4 @@
-## jenkins-swarm
+## alban.andrieu.jenkins-swarm
 
 [![Travis CI](http://img.shields.io/travis/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat)](http://travis-ci.org/AlbanAndrieu/ansible-jenkins-swarm) [![Branch](http://img.shields.io/github/tag/AlbanAndrieu/ansible-jenkins-swarm.svg?style=flat-square)](https://github.com/AlbanAndrieu/ansible-jenkins-swarm/tree/master) [![Donate](https://img.shields.io/gratipay/AlbanAndrieu.svg?style=flat)](https://www.gratipay.com/AlbanAndrieu)  [![Ansible Galaxy](http://img.shields.io/badge/galaxy-alban.andrieu.jenkinsswarm-blue.svg?style=flat)](https://galaxy.ansible.com/list#/roles/2000) [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#)
 
@@ -12,15 +12,16 @@ To install it, run:
 
     ansible-galaxy install alban.andrieu.jenkins-swarm
 
+### Role dependencies
 
+- `alban.andrieu.jenkins-slave`
 
 ### Role variables
 
 List of default variables available in the inventory:
 
 ```yaml
-    ---
-    jenkins_swarm_enabled: yes                       # Enable module
+        jenkins_swarm_enabled: yes                       # Enable module
     jenkins_swarm_client_version: 1.9                # Swarm client version
     
     jenkins_name: jenkins
@@ -48,7 +49,7 @@ Describe how to use in more detail...
 
 ### Authors and license
 
-`jenkins-swarm` role was written by:
+`alban.andrieu.jenkins-swarm` role was written by:
 - [Alban Andrieu](fr.linkedin.com/in/nabla/) | [e-mail](mailto:alban.andrieu@free.fr) | [Twitter](https://twitter.com/AlbanAndrieu) | [GitHub](https://github.com/AlbanAndrieu)
 - License: [GPLv3](https://tldrlegal.com/license/gnu-general-public-license-v3-%28gpl-3%29)
 
