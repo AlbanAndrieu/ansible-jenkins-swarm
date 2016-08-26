@@ -1,10 +1,18 @@
 jenkins_swarm_enabled: yes                       # Enable module
 jenkins_swarm_client_version: 1.9                # Swarm client version
+jenkins_swarm_labels: "java java-medium java-small"              # Swarm labels
+#jenkins_swarm_client_url: "http://maven.jenkins-ci.org/content/repositories/releases/org/jenkins-ci/plugins/swarm-client/{{ swarm_client_version }}"
+jenkins_swarm_client_url: "http://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins/swarm-client/{{ swarm_client_version }}"
 
 jenkins_name: jenkins
 jenkins_user: jenkins
+# python -c 'import crypt; print crypt.crypt("This is my Password", "jenkins")'
+# python -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"
+#http://docs.ansible.com/faq.html#how-do-i-generate-crypted-passwords-for-the-user-module
+jenkins_password: "$6$rounds=40000$OvRtT6osJP89GLee$/cizemUXDAH.mW1ILNK1NGk64/TYLgfbHPo3LnFZEZaLsXTOXQV/0f9.bghBsCycJ32rC.meBaujNQI7KgRPQ."
 jenkins_group: jenkins
-jenkins_shell: "/bin/false"
+#jenkins_shell: "/bin/false"
+jenkins_shell: "/bin/bash"
 jenkins_home: /var/lib/jenkins
 jenkins_url: https://home.nabla.mobi/jenkins
 jenkins_slave_name: swarm-{{ ansible_hostname }}

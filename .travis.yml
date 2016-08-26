@@ -1,15 +1,21 @@
 ---
 language: python
 python: "2.7"
+env:
+  - ANSIBLE_VERSION=2.1.0.0
+cache: bundler
+#sudo: false
+sudo: required
+dist: trusty
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq python-apt python-pycurl
 install:
   # Install Ansible.
-  - pip install ansible
+  - sudo pip install ansible==$ANSIBLE_VERSION
 
   # Add ansible.cfg to pick up roles path.
-  #- "printf '[defaults]\nroles_path = ../' > ansible.cfg"
+  - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
   # Install dependencies.
   #- ansible-galaxy install alban.andrieu.subversion
@@ -24,7 +30,7 @@ install:
   - git clone https://github.com/AlbanAndrieu/ansible-subversion.git alban.andrieu.subversion
   - git clone https://github.com/AlbanAndrieu/ansible-role-git.git geerlingguy.git
   - git clone https://github.com/AlbanAndrieu/ansible-cmake.git alban.andrieu.cmake
-  - git clone https://github.com/AlbanAndrieu/ansible-cpp.git alban.andrieu.cpp    
+  - git clone https://github.com/AlbanAndrieu/ansible-cpp.git alban.andrieu.cpp
   - git clone https://github.com/AlbanAndrieu/ansible-xvbf alban.andrieu.xvbf
   - git clone https://github.com/AlbanAndrieu/ansible-selenium alban.andrieu.selenium
   - git clone https://github.com/AlbanAndrieu/ansible-maven.git maven
@@ -35,10 +41,15 @@ install:
   - git clone https://github.com/AlbanAndrieu/ansible-tomcat alban.andrieu.tomcat
   - git clone https://github.com/AlbanAndrieu/ansible-jboss alban.andrieu.jboss
   - git clone https://github.com/AlbanAndrieu/ansible-jenkins-slave alban.andrieu.jenkins-slave
-         
+
 script:
-  - ansible --version
-#  - export ANSIBLE_ROLES_PATH="../"
-#  - echo localhost > inventory
-  - ansible-playbook -i hosts --syntax-check jenkins-swarm.yml
-  - ansible-playbook -i hosts --connection=local --sudo -vvvv jenkins-swarm.yml
+  - sudo ansible --version
+
+  # Prepare tests
+  #- echo localhost > hosts
+
+  # Check syntax
+  - sudo ansible-playbook -i hosts --syntax-check jenkins-swarm.yml
+
+  # First run
+  - sudo ansible-playbook -i hosts --connection=local --sudo -vvvv jenkins-swarm.yml
