@@ -2,7 +2,7 @@
 #dependencies: []
 dependencies:
   - { role: alban.andrieu.jenkins-slave }
-  
+
 galaxy_info:
   author: Alban Andrieu
   description: A role for installing jenkins-swarm
@@ -26,25 +26,25 @@ galaxy_info:
   - development
   - jenkins
 
-ansigenome_info:
-  galaxy_id: '2000'
-  galaxy_user: 'alban.andrieu'
-  galaxy_name: 'jenkins-swarm'
-  
-  travis: True
-  
-  authors:
-    - name:  'Alban Andrieu'
-      url: 'fr.linkedin.com/in/nabla/'
-      email: 'alban.andrieu@free.fr'
-      twitter: 'AlbanAndrieu'
-      github: 'AlbanAndrieu'
-      
-  synopsis: |
-    Ensures that jenkins swarm is properly installed (using `apt`) and configured for a jenkins slave to be connected to the master
-
-  usage: |
-    Describe how to use in more detail...
-
-  #custom: |
-  #  Any custom output you want after the usage section..
+#ansigenome_info:
+#  galaxy_id: '2000'
+#  galaxy_user: 'alban.andrieu'
+#  galaxy_name: 'jenkins-swarm'
+#
+#  travis: True
+#
+#  authors:
+#    - name:  'Alban Andrieu'
+#      url: 'fr.linkedin.com/in/nabla/'
+#      email: 'alban.andrieu@free.fr'
+#      twitter: 'AlbanAndrieu'
+#      github: 'AlbanAndrieu'
+#
+#  synopsis: |
+#    Ensures that jenkins swarm is properly installed (using `apt`) and configured for a jenkins slave to be connected to the master
+#
+#  usage: |
+#    Describe how to use in more detail...
+#
+#  #custom: |
+#  #  Any custom output you want after the usage section..
