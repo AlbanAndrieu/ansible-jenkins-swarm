@@ -7,6 +7,7 @@
   register: result
   retries: 30
   delay: 10
+  changed_when: False
 
 - name: jenkins-swarm | Create jenkins user
   user: name={{ jenkins_user }} password={{ jenkins_password }} update_password=always comment="Jenkins user" home={{ jenkins_home }} shell={{ jenkins_shell }}
@@ -23,10 +24,10 @@
   sudo: yes
 
 - name: jenkins-swarm | Download Jenkins Swarm Client
-  get_url: dest={{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url={{ jenkins_swarm_client_url }}/{{ jenkins_swarm_client_version }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar owner={{ jenkins_user }} group={{ jenkins_group }}
+  get_url: dest={{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url={{ jenkins_swarm_client_url }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar owner={{ jenkins_user }} group={{ jenkins_group }}
   tags: jenkins_swarm_setup
   sudo: yes
-  
+
 - fail: msg=" jenkins-swarm | Missing parameters!"
   when: jenkins_username == '' or jenkins_password == ''
 
@@ -35,7 +36,7 @@
   tags: jenkins_swarm_setup
   sudo: yes
 
-- name: jenkins-swarm | Start the Jenkins swarm client service
-  service: name=jenkins-swarm-client state=started enabled=true
-  tags: service  
-  sudo: yes 
+#- name: jenkins-swarm | Start the Jenkins swarm client service
+#  service: name=jenkins-swarm-client state=started enabled=true
+#  tags: service
+#  sudo: yes
