@@ -12,7 +12,7 @@
 - name: jenkins-swarm | Create jenkins user
   user: name={{ jenkins_user }} password={{ jenkins_password }} update_password=always comment="Jenkins user" home={{ jenkins_home }} shell={{ jenkins_shell }}
   ignore_errors: true
-  sudo: yes
+  become: true
 
 - name: jenkins-swarm | Create base directory
   file:
@@ -21,22 +21,32 @@
     owner="{{ jenkins_user }}"
     group="{{ jenkins_group }}"
   tags: jenkins_swarm_setup
-  sudo: yes
+  become: true
 
 - name: jenkins-swarm | Download Jenkins Swarm Client
   get_url: dest={{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar url={{ jenkins_swarm_client_url }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar owner={{ jenkins_user }} group={{ jenkins_group }}
   tags: jenkins_swarm_setup
-  sudo: yes
+  become: true
 
 - fail: msg=" jenkins-swarm | Missing parameters!"
-  when: jenkins_username == '' or jenkins_password == ''
+  when: jenkins_remote_username == '' or jenkins_remote_password == ''
 
 - name: jenkins-swarm | Install swarm client script
-  template: src=jenkins-swarm-client.sh.j2 dest=/etc/init.d/jenkins-swarm-client mode=0700
+  template: src=jenkins-swarm-client.sh.j2 dest=/etc/init.d/jenkins-swarm-client mode=0755
   tags: jenkins_swarm_setup
-  sudo: yes
+  become: true
+
+- name: jenkins-swarm | Register machine to jenkins master
+  action: command /etc/init.d/jenkins-swarm-client
+#  sudo_user: "{{ jenkins_user }}"
+  become_user: "{{ jenkins_user }}"
+  tags: jenkins_swarm_setup
+  become: true
+
+- debug: msg=" jenkins-swarm | Register machine to jenkins master /etc/init.d/jenkins-swarm-client"
+- debug: msg=" jenkins-swarm | Log available at {{ jenkins_slave_home }}/swarm-client.log"
 
 #- name: jenkins-swarm | Start the Jenkins swarm client service
 #  service: name=jenkins-swarm-client state=started enabled=true
 #  tags: service
-#  sudo: yes
+#  become: true

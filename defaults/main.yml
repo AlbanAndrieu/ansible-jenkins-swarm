@@ -17,8 +17,10 @@ jenkins_shell: "/bin/bash"
 jenkins_home: /var/lib/jenkins
 jenkins_url: https://localhost:8080/jenkins
 jenkins_slave_name: swarm-{{ ansible_hostname }}
-#prompted jenkins_username: tbd
-#prompted jenkins_password: tbd
+jenkins_remote_username: admin
+jenkins_remote_password: admin
+#prompted jenkins_remote_username: admin
+#prompted jenkins_remote_password: admin
 
 docker_files_generated_directory: "./"
 docker_files_enable: no
