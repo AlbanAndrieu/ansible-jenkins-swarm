@@ -1,7 +1,7 @@
 ---
-#dependencies: []
-dependencies:
-  - { role: alban.andrieu.jenkins-slave }
+dependencies: []
+#dependencies:
+#  - { role: alban.andrieu.jenkins-slave }
 
 galaxy_info:
   author: Alban Andrieu

@@ -31,6 +31,15 @@
 - fail: msg=" jenkins-swarm | Missing parameters!"
   when: jenkins_remote_username == '' or jenkins_remote_password == ''
 
+- set_fact: mydate="#{{lookup('pipe', 'date \"+%Y%m%d\"')}}"
+- debug: var=ansible_date_time
+- debug: msg="The current date is {{ ansible_date_time.date }} and {{ mydate }}"
+
+- name: Set slave name with date
+  set_fact: jenkins_slave_name={{ jenkins_slave_name }}-{{ ansible_date_time.date }}
+
+- debug: msg="The slave name is {{ jenkins_slave_name }}"
+
 - name: jenkins-swarm | Install swarm client script
   template: src=jenkins-swarm-client.sh.j2 dest=/etc/init.d/jenkins-swarm-client mode=0755
   tags: jenkins_swarm_setup
