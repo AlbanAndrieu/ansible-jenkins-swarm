@@ -1,6 +1,7 @@
 ---
 - hosts: all
-  sudo: true
+  become: true
+
   roles:
     - { role: ./,
         docker_files_enable: yes,
@@ -18,7 +19,7 @@
         subversion_minor    : '6',
         subversion_revision : '17',
         subversion_version : "{{subversion_major}}.{{subversion_minor}}.{{subversion_revision}}",
-        subversion_ubuntu: '{{ subversion_version }}dfsg-3ubuntu3',        
+        subversion_ubuntu: '{{ subversion_version }}dfsg-3ubuntu3',
       }
 
 #- include: docker/integration-tests.yml

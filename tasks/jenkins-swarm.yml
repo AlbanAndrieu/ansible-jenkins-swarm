@@ -46,7 +46,7 @@
   become: true
 
 - name: jenkins-swarm | Register machine to jenkins master
-  action: command /etc/init.d/jenkins-swarm-client
+  shell: "nohup /etc/init.d/jenkins-swarm-client"
 #  sudo_user: "{{ jenkins_user }}"
   become_user: "{{ jenkins_user }}"
   tags: jenkins_swarm_setup

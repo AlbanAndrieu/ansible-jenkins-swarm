@@ -1,4 +1,53 @@
-#!/bin/bash
-
+#!/bin/sh
 # {{ ansible_managed }}
-java -jar {{ jenkins_slave_home }}/swarm-client-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar -name {{ jenkins_slave_name }}  -description "Swarm node" -labels "{{ jenkins_swarm_labels }}" -executors 1 -username {{ jenkins_username }} -password {{ jenkins_password }} -fsroot {{ jenkins_slave_home }} -master {{ jenkins_url }} -disableSslVerification &> {{ jenkins_slave_home }}/swarm-client.log &
+# chkconfig: 235 99 10
+# description: Start or stop the Jenkins swarm slave
+#
+### BEGIN INIT INFO
+# Provides: JenkinsSwarm
+# Required-Start: $network $syslog
+# Required-Stop: $network
+# Default-Start: 2 3 5
+# Default-Stop: 0 1 6
+# Description: Start or stop the Jenkins Swarm slave
+### END INIT INFO
+
+BINNAME="swarm-client"
+
+SWARM_CLIENT_FILE="{{ jenkins_slave_home }}/${BINNAME}-{{ jenkins_swarm_client_version }}-jar-with-dependencies.jar"
+
+PID_FILE="${BINNAME}.pid"
+LOG_FILE="{{ jenkins_slave_home }}/${BINNAME}.log"
+
+if [ ! -f ${SWARM_CLIENT_FILE} ]
+then
+    JENKINS_PLUGINS_REPO_ADDRESS="https://repo.jenkins-ci.org/releases/org/jenkins-ci/plugins"
+    SWARM_CLIENT_VERSION="2.2"
+    REMOTE_SWARM_CLIENT_FILE="${JENKINS_PLUGINS_REPO_ADDRESS}/${BINNAME}/${SWARM_CLIENT_VERSION}/${BINNAME}-${SWARM_CLIENT_VERSION}-jar-with-dependencies.jar"
+    wget "${REMOTE_SWARM_CLIENT_FILE}" -O "${SWARM_CLIENT_FILE}"
+fi
+
+if [ -f "${PID_FILE}" ]
+then
+    pid=$(cat "${PID_FILE}")
+
+    ps -p ${pid} -o args | grep "${SWARM_CLIENT_FILE}"
+
+    if [ $? -eq 0 ]
+    then
+        kill -9 ${pid}
+    else
+        echo "Invalid pid ${pid}!"
+    fi
+fi
+
+rm "${PID_FILE}"
+
+java -jar ${SWARM_CLIENT_FILE} -name {{ jenkins_slave_name }} -description "{{ jenkins_swarm_description }}" -labels "{{ jenkins_swarm_labels }}" -executors {{ jenkins_swarm_executors }} -username {{ jenkins_remote_username }} -password {{ jenkins_remote_password }} -fsroot {{ jenkins_slave_home }} -master {{ jenkins_url }} -deleteExistingClients -disableSslVerification -mode '{{ jenkins_swarm_mode }}' -showHostName 1> "${LOG_FILE}" 2>&1 &
+#-t java=~/tools/jdk1.8.0_45 -t gradle=~/tools/gradle-2.9 -t Maven=~/tools/apache-maven-3.3.3 -t Groovy2=~/tools/groovy-2.4.5 -disableClientsUniqueId
+
+echo $! > "${PID_FILE}"
+
+wget {{ jenkins_url }}/jnlpJars/slave.jar
+
+echo "java -jar slave.jar -jnlpUrl {{ jenkins_url }}/computer/{{ jenkins_slave_name }}/slave-agent.jnlp"
